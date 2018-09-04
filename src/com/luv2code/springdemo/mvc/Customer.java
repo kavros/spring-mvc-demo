@@ -6,11 +6,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.luv2code.springdemo.mvc.validation.CourseCode;
+
 
 public class Customer {
 
 	private String firstName;
+	@CourseCode(value="TOPS",message="must start with TOPS")
+	private String courseCode;
 	
+	public String getCourseCode() {
+		return courseCode;
+	}
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
 	@NotNull(message="is required")
 	@Size(min=1,message="is required")
 	private String lastName;
